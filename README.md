@@ -12,7 +12,8 @@ Today, high schools and colleges in the US, teach money management and money bud
 
 ### Datasets: https://data.world/hack-into-it/hackathon-datasets 
 
-## Create a habit forming solution that helps this targeted customer make good financial decisions around saving for a big reward and/or avoiding debt.
+## What you have to do
+### Create a habit forming solution that helps this targeted customer make good financial decisions around saving for a big reward and/or avoiding debt.
 
 ### Expectations
 
