@@ -19,5 +19,5 @@ Today, high schools and colleges in the US, teach money management and money bud
 * Working app using any technology
 * Addresses the problem we are trying to solve
 * Draws insights from the provided datasets by data.world
+* Novel and new to the world
 * Project uploaded on a github repo 
-
