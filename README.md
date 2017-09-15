@@ -1,8 +1,8 @@
 ## Problem Statement
 ### Background
-Today, up to 2/3 of Americans lack financial literacy skills which has led to debt heavy lifestyles, creating huge obstacles for families to achieve financial independence.
-A study from University  of Pennsylvania’s  Wharton School of Business reports that government  agencies and schools spend only two cents on financial literacy for every $100 spent on education not nearly enough  to create enduring positive habits around managing finances.
-Fewer than half of Americans spend less than they  make or have  savings for emergencies
+* Today, up to 2/3 of Americans lack financial literacy skills which has led to debt heavy lifestyles, creating huge obstacles for families to achieve financial independence.
+* A study from University  of Pennsylvania’s  Wharton School of Business reports that government  agencies and schools spend only two cents on financial literacy for every $100 spent on education not nearly enough  to create enduring positive habits around managing finances.
+* Fewer than half of Americans spend less than they  make or have  savings for emergencies
 Our mission at Intuit is to power prosperity for everyone in the world. We believe we can make a difference and fix these problems. 
 
 ### The problem we are trying to solve
