@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,7 +23,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rustie.twoburgers.R;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
@@ -39,7 +43,8 @@ public class NewPurchaseFragment extends Fragment {
 
     private AppCompatSpinner mSpinner;
     private EditText mPrice;
-    private AppCompatButton mSubmit;
+    private ImageButton mSubmit;
+    private TextView mCouldve;
 
     // request stuff
     private JsonObjectRequest mJsonObjectRequest;
@@ -63,7 +68,8 @@ public class NewPurchaseFragment extends Fragment {
 
         mSpinner = (AppCompatSpinner) v.findViewById(R.id.category_spinner);
         mPrice = (EditText) v.findViewById(R.id.price);
-        mSubmit = (AppCompatButton) v.findViewById(R.id.submit);
+        mSubmit = (ImageButton) v.findViewById(R.id.submit);
+        mCouldve = (TextView) v.findViewById(R.id.couldve);
 
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +99,15 @@ public class NewPurchaseFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d(TAG, "Response: " + response.toString());
+                String combination = "";
+                try {
+                    combination += mJsonObject.getString("combination");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                // set the display
+                mCouldve.setText(combination);
+
 
             }
         },
