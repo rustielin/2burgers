@@ -19,6 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rustie.twoburgers.R;
@@ -29,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -59,7 +61,7 @@ public class NewPurchaseFragment extends Fragment {
     private HashMap mParams;
     private JSONObject mJsonObject;
 
-    private String url = "and's butt";
+    private String url = "https://hackintoit.herokuapp.com/polls/?=";
 
     private DatabaseReference mRef;
     private FirebaseUser mFirebaseUser;
@@ -97,10 +99,11 @@ public class NewPurchaseFragment extends Fragment {
                 makeRequest("" + mPrice.getText(), "" + mSpinner.getSelectedItem());
 
 
-                mRef.child("users").child(mFirebaseUser.getUid()).child("amount").setValue(mPrice);
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-                getActivity().finish();
+
+//                mRef.child("users").child(mFirebaseUser.getUid()).child("amount").setValue(mPrice);
+//                Intent intent = new Intent(getActivity(), MainActivity.class);
+//                startActivity(intent);
+//                getActivity().finish();
             }
         });
 
@@ -116,16 +119,24 @@ public class NewPurchaseFragment extends Fragment {
 
     public void makeRequest(String price, String category) {
         // Request a JSON response
-        mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, mJsonObject, new Response.Listener<JSONObject>() {
+        mJsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url + price, mJsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d(TAG, "Response: " + response.toString());
                 String combination = "";
-                try {
-                    combination += mJsonObject.getString("combination");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                combination = response.toString();
+
+
+                // fuck this shit
+                combination.replace("{", "");
+                combination.replace("}", "");
+                combination.replace(":", "");
+                combination.replace("\"", "");
+                combination.replace("[", "");
+                combination.replace("]", "");
+                combination.replace("Combination", "");
+                combination.replace(",", " ");
+
                 // set the display
                 mCouldve.setText(combination);
 
