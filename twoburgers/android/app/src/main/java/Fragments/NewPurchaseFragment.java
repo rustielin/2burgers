@@ -22,6 +22,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rustie.twoburgers.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +36,7 @@ import org.w3c.dom.Text;
 import java.util.HashMap;
 
 import Activities.MainActivity;
+import Singletons.Utils;
 
 /**
  * Created by rustie on 9/15/17.
@@ -54,10 +61,19 @@ public class NewPurchaseFragment extends Fragment {
 
     private String url = "and's butt";
 
+    private DatabaseReference mRef;
+    private FirebaseUser mFirebaseUser;
+
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        mRef = Utils.getDB().child("users").child(mFirebaseUser.getUid());
+
     }
 
     @Nullable
@@ -71,12 +87,17 @@ public class NewPurchaseFragment extends Fragment {
         mSubmit = (ImageButton) v.findViewById(R.id.submit);
         mCouldve = (TextView) v.findViewById(R.id.couldve);
 
+        double amountTotal = 0;
+
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // request andy django
                 makeRequest("" + mPrice.getText(), "" + mSpinner.getSelectedItem());
 
+
+                mRef.child("users").child(mFirebaseUser.getUid()).child("amount").setValue(mPrice);
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
