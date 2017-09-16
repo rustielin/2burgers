@@ -12,10 +12,6 @@
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
 
-
-
-
-
     <ListView
         android:elevation="10dp"
         android:id="@+id/summary_list"
