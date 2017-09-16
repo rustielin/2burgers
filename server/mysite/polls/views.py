@@ -7,10 +7,18 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Choice,Question
 
-import csv
-def index(request):
-    #return JsonResponse({'foo':["dick","butt"]})
 
+def index(request):
+    argument=str(request)
+    i=argument.index("=")
+    arg=""
+    i+=1
+    while argument[i]!='\'':
+        arg+=argument[i]
+        i+=1
+    
+    
+    return JsonResponse({'foo':arg})
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
