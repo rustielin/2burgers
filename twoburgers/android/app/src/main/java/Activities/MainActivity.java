@@ -2,10 +2,14 @@ package Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +21,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.rustie.twoburgers.R;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
+
+import Adapters.CouldveAdapter;
+import Classes.Couldve;
 import Singletons.Utils;
+
+import static android.R.id.list;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +56,7 @@ public class MainActivity extends AppCompatActivity
 
     private TextView mUsername;
     private TextView mEmail;
+    private ImageView mProfPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +93,16 @@ public class MainActivity extends AppCompatActivity
 
         mEmail = (TextView) headerView.findViewById(R.id.email);
         mUsername = (TextView) headerView.findViewById(R.id.name);
+        mProfPic = (ImageView) headerView.findViewById(R.id.imageView);
+
+        Glide.with(context)
+                .load(Utils.getUser().getCurrentUser().getPhotoUrl())
+                .override(100, 100)
+                .into(mProfPic);
 
         Log.d(TAG, "" + mEmail.getText());
         mEmail.setText(Utils.getUser().getCurrentUser().getDisplayName());
+
 
         Log.d(TAG, "" + mEmail.getText());
         mUsername.setText(Utils.getUser().getCurrentUser().getEmail());
@@ -90,6 +113,30 @@ public class MainActivity extends AppCompatActivity
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
 //        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+
+        final ListView listview = (ListView) findViewById(R.id.summary_list);
+        ArrayList<Couldve> couldves = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            couldves.add(new Couldve(i, "Joe"));
+        }
+
+        CouldveAdapter couldveAdapter = new CouldveAdapter(couldves, context);
+
+        listview.setAdapter(couldveAdapter);
+
+
+        ViewGroup headerViewBun = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.couldve_header, listview, false);
+        ViewGroup headerViewBun2 = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.couldve_footer, listview, false);
+
+
+
+
+        listview.addFooterView(headerViewBun2);
+        listview.addHeaderView(headerViewBun);
+
+
 
 
     }
