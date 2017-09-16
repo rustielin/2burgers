@@ -8,8 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.ArrayList;
 
 import Adapters.CouldveAdapter;
+import Adapters.TabbedAdapter;
 import Classes.Couldve;
+import Fragments.TabFragment;
 import Singletons.Utils;
 
 import static android.R.id.list;
@@ -64,6 +68,16 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+//        // Get the ViewPager and set it's PagerAdapter so that it can display items
+//        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        viewPager.setAdapter(new TabbedAdapter(getSupportFragmentManager(),
+//                MainActivity.this));
+//
+//        // Give the TabLayout the ViewPager
+//        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+//        tabLayout.setupWithViewPager(viewPager);
 
         context = this;
 
@@ -135,6 +149,11 @@ public class MainActivity extends AppCompatActivity
 
         listview.addFooterView(headerViewBun2);
         listview.addHeaderView(headerViewBun);
+
+//        getSupportFragmentManager().beginTransaction().add(new TabFragment(), "TabFragment").commit();
+//
+
+
 
 
 

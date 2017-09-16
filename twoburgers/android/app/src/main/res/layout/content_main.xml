@@ -12,7 +12,11 @@
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
 
+
+
     <ListView
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:elevation="10dp"
         android:id="@+id/summary_list"
         android:layout_width="match_parent"

@@ -1,55 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bun"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="4dp"
-    app:cardBackgroundColor="#FFF7DF"
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="100dp"
 
-    <android.support.v7.widget.CardView
-        app:cardBackgroundColor="#FFC300"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="40dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:paddingLeft="30dp"
+        android:elevation="5dp"
+
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <LinearLayout
-            android:paddingLeft="30dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="30dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/summary"
-                android:text="\n" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:foregroundGravity="bottom"
+        android:adjustViewBounds="true"
+        android:src="@drawable/burgerbot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 
-            <TextView
-                android:textSize="18dp"
-                android:text="\n \n "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-
-
-    </android.support.v7.widget.CardView>
-
-
-
-
-
-</android.support.v7.widget.CardView>
+</LinearLayout>
 

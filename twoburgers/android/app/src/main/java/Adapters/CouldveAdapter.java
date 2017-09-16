@@ -35,8 +35,14 @@ public class CouldveAdapter extends ArrayAdapter<Couldve> {
 
     private int[] colors = {
             Color.parseColor("#00D318"),
-            Color.parseColor("#884600"),
+            Color.parseColor("#A55200"),
             Color.parseColor("#FF0000")
+    };
+
+    private int[] colorsBorder = {
+            Color.parseColor("#009B18"),
+            Color.parseColor("#884600"),
+            Color.parseColor("#E80000")
     };
 
 
@@ -47,12 +53,14 @@ public class CouldveAdapter extends ArrayAdapter<Couldve> {
             mNumber = (TextView) v.findViewById(R.id.number);
             mThing = (TextView) v.findViewById(R.id.thing);
             mCardView = (CardView) v.findViewById(R.id.card_view);
+            mCardViewOuter = (CardView) v.findViewById(R.id.card_view_outer);
 
         }
 
         private TextView mNumber;
         private TextView mThing;
         private CardView mCardView;
+        private CardView mCardViewOuter;
 
     }
 
@@ -100,6 +108,7 @@ public class CouldveAdapter extends ArrayAdapter<Couldve> {
         Random random = new Random();
         int c = random.nextInt(3);
         viewHolder.mCardView.setBackgroundColor(colors[c]);
+        viewHolder.mCardViewOuter.setBackgroundColor(colorsBorder[c]);
         return v;
     }
 }
