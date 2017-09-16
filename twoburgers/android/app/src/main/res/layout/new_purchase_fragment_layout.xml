@@ -8,6 +8,26 @@
         android:text="NEW PURCHASE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
     
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/category_spinner"
+        android:spinnerMode="dropdown"
+        android:entries="@array/categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+    <TextView
+        android:text="Item Price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:contentDescription="e.g. $10.98"
+        android:inputType="numberDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>
