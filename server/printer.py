@@ -6,3 +6,4 @@ def printer(filename):
 		for row in reader:
 			dictionary[row[0]]=row[1]
 printer("data")
+print(dictionary)
