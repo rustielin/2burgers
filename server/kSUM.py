@@ -43,7 +43,7 @@ def fourSum(num, target):
         return [list(t) for t in ksum(num, 4, target)]
 
 # array = [1,2,3,4,5,6,7,8]
-result = fourSum(foodPrices, 10)
+result = fourSum(foodPrices, 400)
 for elem in result:
 	print(elem)
 # print(result)

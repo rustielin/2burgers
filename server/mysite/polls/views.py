@@ -20,7 +20,7 @@ def index(request):
     arg = int(arg)
     parseFile("data")
     arg = fourSum(foodPrices, arg)
-    return JsonResponse({'All Possibilities' : arg})
+    return JsonResponse({'Combination' : arg[0]})
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
