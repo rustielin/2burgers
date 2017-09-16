@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "346465737767",
+    "firebase_url": "https://burgers-cd6be.firebaseio.com",
+    "project_id": "burgers-cd6be",
+    "storage_bucket": "burgers-cd6be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346465737767:android:02ce3fbd24a8b8aa",
+        "android_client_info": {
+          "package_name": "com.example.rustie.twoburgers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346465737767-66clse1tb57c9sshoh336217qvi6gkdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rustie.twoburgers",
+            "certificate_hash": "99e828b89fd03e16ece10559e992721a57354428"
+          }
+        },
+        {
+          "client_id": "346465737767-b4196b9mart1pbedb4oq345646jqct69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtkDQuzWYfBINOsQg92pRox6xMX0AA6TQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346465737767-b4196b9mart1pbedb4oq345646jqct69.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
