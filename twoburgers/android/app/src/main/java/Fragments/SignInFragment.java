@@ -120,10 +120,14 @@ public class SignInFragment extends Fragment implements GoogleApiClient.OnConnec
                                 startActivity(intent);
                                 getActivity().finish();
                             } else {
+
+
                                 Log.d(TAG, "Going to HomePageActivity");
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
                                 startActivity(intent);
                                 getActivity().finish();
+
+
                             }
                         }
                         @Override

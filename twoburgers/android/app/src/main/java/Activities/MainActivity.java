@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,13 +17,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.rustie.twoburgers.R;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import Singletons.Utils;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static String TAG = "MainActivity";
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -30,6 +38,9 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient client;
 
     private Context context;
+
+    private TextView mUsername;
+    private TextView mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +64,34 @@ public class MainActivity extends AppCompatActivity
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        View headerView = LayoutInflater.from(this).inflate(R.layout.nav_header_main, navigationView, false);
+        navigationView.addHeaderView(headerView);
+
+        mEmail = (TextView) headerView.findViewById(R.id.email);
+        mUsername = (TextView) headerView.findViewById(R.id.name);
+
+        Log.d(TAG, "" + mEmail.getText());
+        mEmail.setText(Utils.getUser().getCurrentUser().getDisplayName());
+
+        Log.d(TAG, "" + mEmail.getText());
+        mUsername.setText(Utils.getUser().getCurrentUser().getEmail());
+
+
+
         navigationView.setNavigationItemSelectedListener(this);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
 //        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+
     }
 
     @Override
