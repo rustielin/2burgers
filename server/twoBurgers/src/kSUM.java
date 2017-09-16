@@ -20,8 +20,10 @@ public class kSUM
             String sCurrentLine;
 
             while ((sCurrentLine = br.readLine()) != null) {
-                String nextLine = br.readLine();
-                System.out.println(nextLine);
+//                String nextLine = br.readLine();
+//                System.out.println(nextLine);
+                String[] ar = sCurrentLine.split(",");
+                System.out.println(ar[0] + ar[1]);
             }
         } catch (IOException e) {
             e.printStackTrace();
